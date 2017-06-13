@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cecsys.secmax.redis.mapper.UserMapper" >
+
+    <insert id="saveUser" parameterType="com.cecsys.secmax.redis.bean.User">
+    	insert into user (name, sex, age)
+        values ( #{name}, #{sex}, #{age} )
+    </insert>
+
+    <select id="getAllUser" resultType="com.cecsys.secmax.redis.bean.User">
+		select u.id, u.name, u.sex, u.age from user u	
+    </select>
+    
+    <select id="getUserById" resultType="com.cecsys.secmax.redis.bean.User" parameterType="java.lang.Integer">
+    	select u.id, u.name, u.sex, u.age from user u where u.id = #{id}
+    </select>
+    
+    <update id="renameUser" parameterType="com.cecsys.secmax.redis.bean.User">
+    	update user set name = #{name} where id = #{id}
+    </update>  
+    
+    <delete id="deleteUserById" parameterType="java.lang.Integer">  
+        delete from user where id = #{id}  
+    </delete>  
+</mapper>
