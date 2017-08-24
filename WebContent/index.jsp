@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		<h1>hello world</h1>
+		<h1><a href="file/index">hello world</a></h1>
 	</body>
 
 </html>

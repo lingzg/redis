@@ -1,6 +1,7 @@
 package com.cecsys.secmax.redis.bean;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
@@ -36,6 +37,14 @@ public class User implements Serializable{
 	 * 年龄
 	 */
 	private Integer age;
+
+	private String validataCode;
+	
+	private Timestamp registerDate;
+	
+	private String userName;
+	
+	private String email;
 
 	public User() {
 		super();
@@ -86,9 +95,41 @@ public class User implements Serializable{
 		this.age = age;
 	}
 
+	public String getValidataCode() {
+		return validataCode;
+	}
+
+	public void setValidataCode(String validataCode) {
+		this.validataCode = validataCode;
+	}
+
+	public Timestamp getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Timestamp registerDate) {
+		this.registerDate = registerDate;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", sex=" + sex + ", age=" + age + "]";
 	}
-	
+
 }

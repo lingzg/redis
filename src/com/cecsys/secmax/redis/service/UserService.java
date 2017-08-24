@@ -40,4 +40,8 @@ public interface UserService {
 	 * @param id
 	 */
 	void deleteUserById(Integer id);
+
+	User findUserByName(String userName);
+
+	void update(User users);
 }

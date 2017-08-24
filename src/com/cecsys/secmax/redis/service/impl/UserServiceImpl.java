@@ -55,4 +55,16 @@ public class UserServiceImpl implements UserService {
 		mUserDao.deleteById(id);
 	}
 
+	@Override
+	public User findUserByName(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(User users) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
