@@ -13,11 +13,13 @@
  	<context:annotation-config/>
  	<mvc:annotation-driven /> 
  	<!-- class annotation related... start -->
-	<context:component-scan base-package="com.cecsys.secmax" use-default-filters="false">
+	<context:component-scan base-package="com.cecsys.secmax.redis" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	<!-- class annotation related... end -->
  
+ 	<mvc:resources location="/static/" mapping="/static/**"/>
+ 	
  	<!-- jsp page related... start -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -25,6 +27,8 @@
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
+		<property name="contentType" value="text/html;charset=UTF-8" /> 
+        <property name="cache" value="false"/> 
 	</bean>
 	<!-- jsp page related... end -->
 	
@@ -45,4 +49,9 @@
         </property>
     </bean>
     <!-- rest json related... end -->
+    
+    <!-- Enable annotation-based controllers using @Controller annotations -->
+    <bean id="annotationUrlMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="interceptors" ref="currentUserInterceptor"/>
+    </bean>
 </beans>
